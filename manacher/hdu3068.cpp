@@ -30,7 +30,7 @@ void manacher()
 		while (s_new[i - r[i]] == s_new[i + r[i]]) r[i]++;
 		if (i + r[i]>mx){
 			mx = i + r[i];
-			pos = i;
+			pos = i;//pos为已经配对的离结尾最远的回文串的中心位置
 		}
 	}
 }
