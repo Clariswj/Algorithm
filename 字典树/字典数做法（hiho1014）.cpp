@@ -2,15 +2,19 @@
 #include<cstring>
 #include<iostream>
 #include<algorithm>
+
 using namespace std;
+
 char s[11];
 int n,m;
 bool p;
+
 struct node
 {
     int count;
     node * next[26];
 }*root;
+
 node * build()
 {
     node * k=new(node);
@@ -18,6 +22,7 @@ node * build()
     memset(k->next,0,sizeof(k->next));
     return k;
 }
+
 void insert()
 {
     node * r=root;
@@ -31,6 +36,7 @@ void insert()
         word++;
     }
 }
+
 int search()
 {
     node * r=root;
@@ -44,25 +50,27 @@ int search()
     }
     return r->count;
 }
+
 void Del(Trie *p)
 {
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i<26; i++)
 	{
 		if (p->next[i] != NULL)
 			Del(p->next[i]);
 	}
 	delete(p);
 }
+
 int main()
 {
     root=build();
-    scanf("%d",&n);
+    cin>>n;
     for(int i=1;i<=n;i++) 
     {
             cin>>s;
             insert();
     }
-    scanf("%d",&m);
+    cin>>m;
     for(int i=1;i<=m;i++)
     {
         cin>>s;
